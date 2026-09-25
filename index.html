@@ -16,113 +16,300 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #172554);
             color: white;
+            overflow: hidden;
         }
 
+        /* BINTANG */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .stars span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .stars span:nth-child(1) {
+            top: 15%;
+            left: 10%;
+        }
+
+        .stars span:nth-child(2) {
+            top: 25%;
+            left: 80%;
+        }
+
+        .stars span:nth-child(3) {
+            top: 70%;
+            left: 20%;
+        }
+
+        .stars span:nth-child(4) {
+            top: 80%;
+            left: 75%;
+        }
+
+        .stars span:nth-child(5) {
+            top: 45%;
+            left: 50%;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* OPENING */
+        #opening {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            transition: 0.8s;
+        }
+
+        #opening.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .opening-card {
+            width: 100%;
+            max-width: 450px;
+            padding: 45px 30px;
+            text-align: center;
+
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .opening-card .icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .opening-card small {
+            letter-spacing: 3px;
+            color: #facc15;
+        }
+
+        .opening-card h1 {
+            font-size: 42px;
+            margin: 15px 0;
+        }
+
+        .opening-card p {
+            color: #dbeafe;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .opening-card button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: #facc15;
+            color: #172554;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .opening-card button:hover {
+            transform: scale(1.05);
+            background: #fde68a;
+        }
+
+        /* CONTAINER */
         .container {
-            min-height: 100vh;
+            width: 100%;
+            max-width: 850px;
+            height: 100vh;
+            margin: auto;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
-        .card {
+        /* SLIDE */
+        .slide {
+            display: none;
             width: 100%;
             max-width: 650px;
             padding: 45px 35px;
+
             text-align: center;
 
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 25px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
 
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+
+            animation: fade 0.7s ease;
         }
 
-        .judul-kecil {
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .small-title {
             color: #facc15;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             font-size: 14px;
         }
 
-        h1 {
+        .slide h1 {
             font-size: 48px;
-            margin: 15px 0 5px;
+            margin: 18px 0 8px;
         }
 
-        h2 {
+        .slide h2 {
             color: #facc15;
             margin-bottom: 25px;
         }
 
-        .tanggal {
+        .date {
             font-size: 20px;
             font-weight: bold;
-            margin-bottom: 30px;
+            margin: 20px 0;
         }
 
-        .informasi {
+        .info {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin: 25px 0;
+            margin: 30px 0;
         }
 
-        .kotak {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
+        .info-box {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.08);
         }
 
-        .kotak strong {
+        .info-box strong {
             display: block;
             color: #facc15;
             margin-bottom: 8px;
         }
 
-        .pesan {
-            color: #dbeafe;
+        .message {
             line-height: 1.8;
+            color: #dbeafe;
         }
 
-        .kutipan {
+        .quote {
             margin: 25px 0;
             padding: 20px;
-
-            background: rgba(255, 255, 255, 0.07);
             border-left: 4px solid #facc15;
+            background: rgba(255,255,255,0.07);
             border-radius: 10px;
-
-            line-height: 1.7;
             font-style: italic;
+            line-height: 1.7;
         }
 
-        .penutup {
+        /* BUTTON */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
             margin-top: 30px;
-            color: #facc15;
-            font-weight: bold;
-            font-size: 20px;
         }
 
+        .buttons button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .next {
+            background: #facc15;
+            color: #172554;
+        }
+
+        .back {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        /* MUSIC BUTTON */
+        .music-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #facc15;
+            color: #172554;
+
+            font-size: 20px;
+            cursor: pointer;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 600px) {
 
-            .card {
-                padding: 35px 20px;
+            .slide {
+                padding: 35px 22px;
             }
 
-            h1 {
+            .slide h1 {
                 font-size: 38px;
             }
 
-            .informasi {
-                grid-template-columns: 1fr;
+            .opening-card h1 {
+                font-size: 36px;
             }
 
-            .tanggal {
-                font-size: 17px;
+            .info {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -130,11 +317,68 @@
 
 <body>
 
+    <!-- =========================================
+         MUSIK
+    ========================================== -->
+
+    <audio id="musik" loop>
+        <source src="musik-ulang-tahun.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =========================================
+         BINTANG
+    ========================================== -->
+
+    <div class="stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- =========================================
+         HALAMAN PEMBUKA
+    ========================================== -->
+
+    <div id="opening">
+
+        <div class="opening-card">
+
+            <div class="icon">🎁</div>
+
+            <small>UNDANGAN SPESIAL</small>
+
+            <h1>Rizki Aul</h1>
+
+            <p>
+                Mengundang kamu untuk hadir
+                di hari ulang tahunku yang ke-18.
+            </p>
+
+            <button onclick="bukaUndangan()">
+                💌 Buka Undangan
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         ISI UNDANGAN
+    ========================================== -->
+
     <div class="container">
 
-        <div class="card">
 
-            <div class="judul-kecil">
+        <!-- SLIDE 1 -->
+
+        <section class="slide active" id="slide1">
+
+            <div class="small-title">
                 UNDANGAN ULANG TAHUN
             </div>
 
@@ -142,27 +386,25 @@
 
             <h2>18th Birthday</h2>
 
-            <div class="tanggal">
+            <div class="date">
                 ✨ Kamis, 15 Oktober 2026 ✨
             </div>
 
+            <div class="info">
 
-            <div class="informasi">
-
-                <div class="kotak">
-                    <strong>🎂 ACARA</strong>
+                <div class="info-box">
+                    <strong>🎂 Acara</strong>
                     Ulang Tahun Ke-18
                 </div>
 
-                <div class="kotak">
-                    <strong>📍 TEMPAT</strong>
+                <div class="info-box">
+                    <strong>📍 Tempat</strong>
                     Rumah Kami
                 </div>
 
             </div>
 
-
-            <div class="kutipan">
+            <div class="quote">
 
                 "18 tahun bukan hanya tentang
                 bertambahnya usia, tetapi juga
@@ -172,35 +414,161 @@
 
             </div>
 
-
-            <p class="pesan">
+            <p class="message">
 
                 Dengan penuh kebahagiaan,
-                aku mengundang kamu untuk hadir
-                dan merayakan hari spesial ini
+                aku mengundang kamu untuk
+                merayakan hari spesial ini
                 bersamaku.
+
+            </p>
+
+            <div class="buttons">
+
+                <button class="next" onclick="nextSlide()">
+                    Lanjut →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SLIDE 2 -->
+
+        <section class="slide" id="slide2">
+
+            <div class="small-title">
+                SPECIAL MOMENT
+            </div>
+
+            <h1>See You There! 🎉</h1>
+
+            <p class="message">
+
+                Kehadiran kamu akan menjadi
+                salah satu bagian dari kebahagiaan
+                dan kenangan yang berharga di
+                hari ulang tahunku.
 
                 <br><br>
 
-                Kehadiran kamu akan menjadi
-                bagian dari kebahagiaan dan
-                kenangan yang berharga.
+                Mari berkumpul, berbagi cerita,
+                tertawa bersama, dan menikmati
+                momen spesial ini.
 
             </p>
 
+            <div class="quote">
 
-            <div class="penutup">
-                Jangan lupa datang ya! ❤️
+                Jangan lupa datang pada
+                <strong>15 Oktober 2026</strong>.
+
+                <br>
+
+                Ditunggu kehadirannya, ya! ❤️
+
             </div>
 
-            <p class="pesan" style="margin-top: 15px;">
-                Ditunggu kehadirannya pada
-                15 Oktober 2026.
-            </p>
+            <h2>
+                Terima Kasih ❤️
+            </h2>
 
-        </div>
+            <div class="buttons">
+
+                <button class="back" onclick="prevSlide()">
+                    ← Kembali
+                </button>
+
+            </div>
+
+        </section>
 
     </div>
+
+
+    <!-- =========================================
+         TOMBOL MUSIK
+    ========================================== -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+        onclick="toggleMusic()">
+        🔊
+    </button>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        function bukaUndangan() {
+
+            const musik = document.getElementById("musik");
+
+            // Memulai musik ketika tombol diklik
+            musik.play().catch(function(error) {
+                console.log("Musik tidak dapat diputar.");
+            });
+
+            // Menutup halaman pembuka
+            document
+                .getElementById("opening")
+                .classList.add("hide");
+        }
+
+
+        function nextSlide() {
+
+            document
+                .getElementById("slide1")
+                .classList.remove("active");
+
+            document
+                .getElementById("slide2")
+                .classList.add("active");
+        }
+
+
+        function prevSlide() {
+
+            document
+                .getElementById("slide2")
+                .classList.remove("active");
+
+            document
+                .getElementById("slide1")
+                .classList.add("active");
+        }
+
+
+        function toggleMusic() {
+
+            const musik =
+                document.getElementById("musik");
+
+            const tombol =
+                document.getElementById("musicButton");
+
+
+            if (musik.paused) {
+
+                musik.play();
+
+                tombol.innerHTML = "🔊";
+
+            } else {
+
+                musik.pause();
+
+                tombol.innerHTML = "🔇";
+            }
+        }
+
+    </script>
 
 </body>
 </html>
