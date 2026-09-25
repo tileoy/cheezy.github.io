@@ -1,973 +1,574 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Undangan Ulang Tahun Rizki Aul</title>
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #061a38;
-    color: white;
-    overflow: hidden;
-}
-
-/* =================================
-   HALAMAN PEMBUKA
-================================= */
-
-#opening {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(59,130,246,0.4),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(245,158,11,0.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #061a38,
-            #102d5c,
-            #071b3b
-        );
-
-    transition: 0.8s;
-}
-
-.opening-card {
-    width: 90%;
-    max-width: 500px;
-
-    padding: 45px 30px;
-
-    text-align: center;
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,0.08);
-
-    border: 1px solid rgba(255,255,255,0.35);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.5);
-}
-
-.opening-icon {
-    font-size: 65px;
-    margin-bottom: 20px;
-}
-
-.opening-small {
-    color: #f8d58b;
-    letter-spacing: 4px;
-    font-size: 13px;
-}
-
-.opening-card h1 {
-    color: #f8d58b;
-    font-family: Georgia, serif;
-    font-size: 45px;
-    margin: 15px 0;
-}
-
-.opening-card p {
-    color: #e5e7eb;
-    line-height: 1.7;
-}
-
-.opening-card button {
-    margin-top: 25px;
-
-    padding: 14px 30px;
-
-    border: none;
-    border-radius: 30px;
-
-    background: linear-gradient(
-        90deg,
-        #d9a441,
-        #f8d58b
-    );
-
-    color: #071b3b;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.opening-card button:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 25px rgba(248,213,139,0.35);
-}
-
-#opening.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-
-/* =================================
-   SLIDE
-================================= */
-
-.slide {
-    width: 100%;
-    height: 100vh;
-
-    display: none;
-
-    position: relative;
-
-    overflow-y: auto;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(59,130,246,0.35),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(245,158,11,0.15),
-            transparent 25%
-        ),
-        linear-gradient(
-            135deg,
-            #061a38,
-            #102d5c,
-            #071b3b
-        );
-}
-
-.slide.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* =================================
-   CARD UTAMA
-================================= */
-
-.card {
-    width: 90%;
-    max-width: 900px;
-
-    min-height: 85vh;
-
-    padding: 45px;
-
-    margin: 30px auto;
-
-    border: 1px solid rgba(255,255,255,0.4);
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,0.07);
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.45);
-
-    text-align: center;
-
-    position: relative;
-}
-
-
-/* =================================
-   DEKORASI
-================================= */
-
-.bintang {
-    position: absolute;
-
-    color: #f8d58b;
-
-    font-size: 25px;
-}
-
-.bintang.satu {
-    top: 35px;
-    left: 45px;
-}
-
-.bintang.dua {
-    top: 100px;
-    right: 50px;
-}
-
-.bintang.tiga {
-    bottom: 80px;
-    left: 60px;
-}
-
-.bintang.empat {
-    bottom: 40px;
-    right: 60px;
-}
-
-
-/* =================================
-   SLIDE 1
-================================= */
-
-.judul-kecil {
-    letter-spacing: 5px;
-
-    font-size: 14px;
-
-    color: #f8d58b;
-
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 55px;
-
-    color: #f8d58b;
-
-    margin-bottom: 5px;
-
-    font-family: Georgia, serif;
-}
-
-.umur {
-    font-size: 30px;
-
-    color: white;
-
-    margin-bottom: 25px;
-}
-
-.nama {
-    display: inline-block;
-
-    padding: 15px 45px;
-
-    margin: 10px 0 30px;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #d9a441,
-            #f8d58b,
-            #d9a441
-        );
-
-    color: #071b3b;
-
-    font-size: 38px;
-
-    font-weight: bold;
-
-    font-family: Georgia, serif;
-
-    box-shadow:
-        0 8px 25px rgba(248,213,139,0.25);
-}
-
-.pembuka {
-    max-width: 650px;
-
-    margin: auto;
-
-    color: #dbeafe;
-
-    line-height: 1.8;
-
-    font-size: 17px;
-}
-
-
-/* =================================
-   DETAIL ACARA
-================================= */
-
-.detail {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    margin: 35px 0;
-
-    flex-wrap: wrap;
-}
-
-.detail-box {
-    width: 200px;
-
-    padding: 20px;
-
-    border-radius: 18px;
-
-    background: rgba(255,255,255,0.08);
-
-    border: 1px solid rgba(255,255,255,0.15);
-}
-
-.detail-box .icon {
-    font-size: 30px;
-
-    margin-bottom: 10px;
-}
-
-.detail-box strong {
-    display: block;
-
-    color: #f8d58b;
-
-    margin-bottom: 8px;
-}
-
-.detail-box span {
-    color: #e5e7eb;
-
-    line-height: 1.5;
-}
-
-
-/* =================================
-   KATA MANIS
-================================= */
-
-.kesan {
-    max-width: 650px;
-
-    margin: 25px auto;
-
-    padding: 25px;
-
-    border-left: 4px solid #f8d58b;
-
-    border-right: 4px solid #f8d58b;
-
-    background: rgba(255,255,255,0.05);
-
-    border-radius: 15px;
-
-    color: #f1f5f9;
-
-    line-height: 1.8;
-
-    font-style: italic;
-}
-
-
-/* =================================
-   SLIDE 2
-================================= */
-
-.slide2-content {
-    max-width: 700px;
-
-    margin: auto;
-}
-
-.slide2-content h2 {
-    font-family: Georgia, serif;
-
-    font-size: 45px;
-
-    color: #f8d58b;
-
-    margin-bottom: 25px;
-}
-
-.slide2-content p {
-    color: #e5e7eb;
-
-    font-size: 18px;
-
-    line-height: 2;
-
-    margin-bottom: 22px;
-}
-
-.pesan {
-    padding: 30px;
-
-    border-radius: 20px;
-
-    background: rgba(255,255,255,0.08);
-
-    border: 1px solid rgba(248,213,139,0.3);
-
-    margin: 25px 0;
-}
-
-.terima {
-    color: #f8d58b !important;
-
-    font-size: 35px !important;
-
-    font-family: Georgia, serif;
-
-    font-weight: bold;
-
-    margin-top: 30px;
-}
-
-
-/* =================================
-   TOMBOL
-================================= */
-
-.tombol {
-    display: inline-block;
-
-    padding: 13px 30px;
-
-    margin-top: 15px;
-
-    border-radius: 30px;
-
-    border: none;
-
-    background:
-        linear-gradient(
-            90deg,
-            #d9a441,
-            #f8d58b
-        );
-
-    color: #071b3b;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.tombol:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 25px rgba(248,213,139,0.3);
-}
-
-
-/* =================================
-   TOMBOL MUSIK
-================================= */
-
-.music-button {
-    position: fixed;
-
-    bottom: 20px;
-
-    right: 20px;
-
-    z-index: 1000;
-
-    width: 50px;
-
-    height: 50px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.3);
-
-    background: rgba(255,255,255,0.15);
-
-    color: white;
-
-    font-size: 22px;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(10px);
-}
-
-
-/* =================================
-   RESPONSIVE
-================================= */
-
-@media (max-width: 600px) {
-
-    .card {
-        width: 94%;
-
-        padding: 30px 20px;
-
-        min-height: 90vh;
-    }
-
-    h1 {
-        font-size: 40px;
-    }
-
-    .umur {
-        font-size: 25px;
-    }
-
-    .nama {
-        font-size: 28px;
-
-        padding: 12px 30px;
-    }
-
-    .detail-box {
-        width: 100%;
-    }
-
-    .slide2-content h2 {
-        font-size: 34px;
-    }
-
-    .slide2-content p {
-        font-size: 16px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Undangan Ulang Tahun Rizki Aul</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #172554);
+            color: white;
+            overflow: hidden;
+        }
+
+        /* BINTANG */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .stars span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .stars span:nth-child(1) {
+            top: 15%;
+            left: 10%;
+        }
+
+        .stars span:nth-child(2) {
+            top: 25%;
+            left: 80%;
+        }
+
+        .stars span:nth-child(3) {
+            top: 70%;
+            left: 20%;
+        }
+
+        .stars span:nth-child(4) {
+            top: 80%;
+            left: 75%;
+        }
+
+        .stars span:nth-child(5) {
+            top: 45%;
+            left: 50%;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* OPENING */
+        #opening {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            transition: 0.8s;
+        }
+
+        #opening.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .opening-card {
+            width: 100%;
+            max-width: 450px;
+            padding: 45px 30px;
+            text-align: center;
+
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .opening-card .icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .opening-card small {
+            letter-spacing: 3px;
+            color: #facc15;
+        }
+
+        .opening-card h1 {
+            font-size: 42px;
+            margin: 15px 0;
+        }
+
+        .opening-card p {
+            color: #dbeafe;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .opening-card button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: #facc15;
+            color: #172554;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .opening-card button:hover {
+            transform: scale(1.05);
+            background: #fde68a;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 850px;
+            height: 100vh;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* SLIDE */
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 650px;
+            padding: 45px 35px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+
+            animation: fade 0.7s ease;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .small-title {
+            color: #facc15;
+            letter-spacing: 4px;
+            font-size: 14px;
+        }
+
+        .slide h1 {
+            font-size: 48px;
+            margin: 18px 0 8px;
+        }
+
+        .slide h2 {
+            color: #facc15;
+            margin-bottom: 25px;
+        }
+
+        .date {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .info-box {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .info-box strong {
+            display: block;
+            color: #facc15;
+            margin-bottom: 8px;
+        }
+
+        .message {
+            line-height: 1.8;
+            color: #dbeafe;
+        }
+
+        .quote {
+            margin: 25px 0;
+            padding: 20px;
+            border-left: 4px solid #facc15;
+            background: rgba(255,255,255,0.07);
+            border-radius: 10px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* BUTTON */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .next {
+            background: #facc15;
+            color: #172554;
+        }
+
+        .back {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        /* MUSIC BUTTON */
+        .music-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #facc15;
+            color: #172554;
+
+            font-size: 20px;
+            cursor: pointer;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+
+            .slide {
+                padding: 35px 22px;
+            }
+
+            .slide h1 {
+                font-size: 38px;
+            }
+
+            .opening-card h1 {
+                font-size: 36px;
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <!-- =========================================
+         MUSIK
+    ========================================== -->
 
-<!-- =====================================================
-     MUSIK PENGIRING
-===================================================== -->
-
-<audio id="musik" loop>
-
-    <source
-        src="Glenn Fredly - Kasih Putih [Instrumental Cover] by Aveola Music - (320 Kbps).mp3"
-        type="audio/mpeg"
-    >
-
-</audio>
+    <audio id="musik" loop>
+        <source src="musik-ulang-tahun.mp3" type="audio/mpeg">
+    </audio>
 
 
-<!-- =====================================================
-     HALAMAN PEMBUKA
-===================================================== -->
+    <!-- =========================================
+         BINTANG
+    ========================================== -->
 
-<div id="opening">
-
-    <div class="opening-card">
-
-        <div class="opening-icon">
-            🎁
-        </div>
-
-        <p class="opening-small">
-            UNDANGAN SPESIAL
-        </p>
-
-        <h1>
-            Rizki Aul
-        </h1>
-
-        <p>
-            Mengundang kamu untuk hadir
-            di hari ulang tahunku yang ke-18.
-        </p>
-
-        <button onclick="bukaUndangan()">
-            💌 Buka Undangan
-        </button>
-
+    <div class="stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
 
-</div>
 
+    <!-- =========================================
+         HALAMAN PEMBUKA
+    ========================================== -->
 
-<!-- =====================================================
-     SLIDE 1
-===================================================== -->
+    <div id="opening">
 
-<section class="slide active" id="slide1">
+        <div class="opening-card">
 
-    <div class="card">
+            <div class="icon">🎁</div>
 
-        <div class="bintang satu">✦</div>
+            <small>UNDANGAN SPESIAL</small>
 
-        <div class="bintang dua">✧</div>
-
-        <div class="bintang tiga">✦</div>
-
-        <div class="bintang empat">✧</div>
-
-
-        <div class="judul-kecil">
-            UNDANGAN ULANG TAHUN
-        </div>
-
-
-        <h1>
-            Ulang Tahun
-        </h1>
-
-
-        <div class="umur">
-            Ke-18
-        </div>
-
-
-        <div class="nama">
-            Rizki Aul
-        </div>
-
-
-        <div class="pembuka">
-
-            Hai, kamu diundang untuk hadir
-            dan ikut merayakan hari spesial
-            yang penuh kebahagiaan.
-
-            Mari bersama-sama membuat hari ini
-            menjadi sebuah kenangan yang indah
-            dan tidak terlupakan.
-
-        </div>
-
-
-        <!-- DETAIL -->
-
-        <div class="detail">
-
-
-            <div class="detail-box">
-
-                <div class="icon">
-                    📅
-                </div>
-
-                <strong>
-                    Tanggal
-                </strong>
-
-                <span>
-                    15 Oktober 2026
-                </span>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <div class="icon">
-                    🎂
-                </div>
-
-                <strong>
-                    Acara
-                </strong>
-
-                <span>
-                    Ulang Tahun Ke-18
-                </span>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <div class="icon">
-                    📍
-                </div>
-
-                <strong>
-                    Tempat
-                </strong>
-
-                <span>
-                    Rumah Kami
-                </span>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- KATA MANIS -->
-
-        <div class="kesan">
-
-            “18 tahun bukan hanya tentang
-            bertambahnya usia, tetapi juga
-            tentang bertambahnya cerita,
-            pengalaman, dan orang-orang baik
-            yang hadir dalam perjalanan hidup.
-
-            Terima kasih sudah menjadi bagian
-            dari cerita tersebut.”
-
-        </div>
-
-
-        <button class="tombol" onclick="nextSlide()">
-
-            Lanjut ke Undangan →
-
-        </button>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SLIDE 2
-===================================================== -->
-
-<section class="slide" id="slide2">
-
-    <div class="card">
-
-
-        <div class="bintang satu">✦</div>
-
-        <div class="bintang dua">✧</div>
-
-        <div class="bintang tiga">✦</div>
-
-        <div class="bintang empat">✧</div>
-
-
-        <div class="slide2-content">
-
-
-            <div class="judul-kecil">
-                UNTUK TEMAN-TEMAN
-            </div>
-
-
-            <h2>
-                Kehadiranmu Berarti
-            </h2>
-
-
-            <div class="pesan">
-
-
-                <p>
-
-                    Teman-teman yang sudah diundang,
-                    diharapkan dapat hadir untuk ikut
-                    merayakan hari spesial ini bersama.
-
-                </p>
-
-
-                <p>
-
-                    Kehadiran kalian bukan hanya
-                    sekadar datang ke sebuah acara,
-                    tetapi juga menjadi bagian dari
-                    kebahagiaan dan kenangan yang
-                    akan selalu diingat.
-
-                </p>
-
-
-                <p>
-
-                    Semoga kita bisa berkumpul,
-                    berbagi cerita, tertawa bersama,
-                    menikmati suasana, dan membuat
-                    momen sederhana ini menjadi
-                    kenangan yang berkesan.
-
-                </p>
-
-
-                <p>
-
-                    Jadi, jangan lupa datang pada
-                    <strong>15 Oktober 2026</strong>.
-
-                    Ditunggu kehadirannya, ya!
-
-                </p>
-
-
-            </div>
-
+            <h1>Rizki Aul</h1>
 
             <p>
-
-                Sampai bertemu di hari yang istimewa.
-
-                Semoga kita bisa menikmati waktu
-                bersama dan membuat banyak cerita baru.
-
+                Mengundang kamu untuk hadir
+                di hari ulang tahunku yang ke-18.
             </p>
 
-
-            <div class="terima">
-
-                Terima Kasih ❤️
-
-            </div>
-
-
-            <p style="color:#f8d58b;">
-
-                Rizki Aul • 18 Tahun • 15 Oktober 2026
-
-            </p>
-
-
-            <button class="tombol" onclick="prevSlide()">
-
-                ← Kembali
-
+            <button onclick="bukaUndangan()">
+                💌 Buka Undangan
             </button>
-
 
         </div>
 
+    </div>
+
+
+    <!-- =========================================
+         ISI UNDANGAN
+    ========================================== -->
+
+    <div class="container">
+
+
+        <!-- SLIDE 1 -->
+
+        <section class="slide active" id="slide1">
+
+            <div class="small-title">
+                UNDANGAN ULANG TAHUN
+            </div>
+
+            <h1>Rizki Aul</h1>
+
+            <h2>18th Birthday</h2>
+
+            <div class="date">
+                ✨ Kamis, 15 Oktober 2026 ✨
+            </div>
+
+            <div class="info">
+
+                <div class="info-box">
+                    <strong>🎂 Acara</strong>
+                    Ulang Tahun Ke-18
+                </div>
+
+                <div class="info-box">
+                    <strong>📍 Tempat</strong>
+                    Rumah Kami
+                </div>
+
+            </div>
+
+            <div class="quote">
+
+                "18 tahun bukan hanya tentang
+                bertambahnya usia, tetapi juga
+                tentang bertambahnya cerita,
+                pengalaman, dan orang-orang baik
+                yang hadir dalam perjalanan hidup."
+
+            </div>
+
+            <p class="message">
+
+                Dengan penuh kebahagiaan,
+                aku mengundang kamu untuk
+                merayakan hari spesial ini
+                bersamaku.
+
+            </p>
+
+            <div class="buttons">
+
+                <button class="next" onclick="nextSlide()">
+                    Lanjut →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SLIDE 2 -->
+
+        <section class="slide" id="slide2">
+
+            <div class="small-title">
+                SPECIAL MOMENT
+            </div>
+
+            <h1>See You There! 🎉</h1>
+
+            <p class="message">
+
+                Kehadiran kamu akan menjadi
+                salah satu bagian dari kebahagiaan
+                dan kenangan yang berharga di
+                hari ulang tahunku.
+
+                <br><br>
+
+                Mari berkumpul, berbagi cerita,
+                tertawa bersama, dan menikmati
+                momen spesial ini.
+
+            </p>
+
+            <div class="quote">
+
+                Jangan lupa datang pada
+                <strong>15 Oktober 2026</strong>.
+
+                <br>
+
+                Ditunggu kehadirannya, ya! ❤️
+
+            </div>
+
+            <h2>
+                Terima Kasih ❤️
+            </h2>
+
+            <div class="buttons">
+
+                <button class="back" onclick="prevSlide()">
+                    ← Kembali
+                </button>
+
+            </div>
+
+        </section>
 
     </div>
 
-</section>
+
+    <!-- =========================================
+         TOMBOL MUSIK
+    ========================================== -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+        onclick="toggleMusic()">
+        🔊
+    </button>
 
 
-<!-- =====================================================
-     TOMBOL MUSIK
-===================================================== -->
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
-<button
-    class="music-button"
-    onclick="toggleMusic()"
-    id="musicButton">
+    <script>
 
-    🔊
+        function bukaUndangan() {
 
-</button>
+            const musik = document.getElementById("musik");
 
+            // Memulai musik ketika tombol diklik
+            musik.play().catch(function(error) {
+                console.log("Musik tidak dapat diputar.");
+            });
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-
-// Membuka undangan
-function bukaUndangan() {
-
-    const musik =
-        document.getElementById("musik");
-
-    musik.play().catch(function(error) {
-
-        console.log(
-            "Musik tidak dapat diputar."
-        );
-
-    });
+            // Menutup halaman pembuka
+            document
+                .getElementById("opening")
+                .classList.add("hide");
+        }
 
 
-    document
-        .getElementById("opening")
-        .classList.add("hide");
+        function nextSlide() {
 
-}
+            document
+                .getElementById("slide1")
+                .classList.remove("active");
 
-
-// Pindah ke slide 2
-function nextSlide() {
-
-    document
-        .getElementById("slide1")
-        .classList.remove("active");
-
-    document
-        .getElementById("slide2")
-        .classList.add("active");
-
-}
+            document
+                .getElementById("slide2")
+                .classList.add("active");
+        }
 
 
-// Kembali ke slide 1
-function prevSlide() {
+        function prevSlide() {
 
-    document
-        .getElementById("slide2")
-        .classList.remove("active");
+            document
+                .getElementById("slide2")
+                .classList.remove("active");
 
-    document
-        .getElementById("slide1")
-        .classList.add("active");
-
-}
+            document
+                .getElementById("slide1")
+                .classList.add("active");
+        }
 
 
-// Tombol musik ON/OFF
-function toggleMusic() {
+        function toggleMusic() {
 
-    const musik =
-        document.getElementById("musik");
+            const musik =
+                document.getElementById("musik");
 
-    const tombol =
-        document.getElementById("musicButton");
+            const tombol =
+                document.getElementById("musicButton");
 
 
-    if (musik.paused) {
+            if (musik.paused) {
 
-        musik.play();
+                musik.play();
 
-        tombol.innerHTML = "🔊";
+                tombol.innerHTML = "🔊";
 
-    } else {
+            } else {
 
-        musik.pause();
+                musik.pause();
 
-        tombol.innerHTML = "🔇";
+                tombol.innerHTML = "🔇";
+            }
+        }
 
-    }
-
-}
-
-</script>
-
+    </script>
 
 </body>
 </html>
